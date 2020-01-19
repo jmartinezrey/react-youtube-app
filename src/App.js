@@ -8,11 +8,12 @@ import VideoDetail from './components/video_detail';
 
 const API_KEY = 'AIzaSyAa-X6v3C0k3E68LdYteXBJIe7qr-8-o-M';
 
+// I use a constructor to initialize the state with an object, with videos as an array because I will have more than one 
 class App extends Component {
-  constructor(props){ // because the state is an object 
-    super(props); // because I'm using constructor
+  constructor(props){
+    super(props); 
     this.state = { 
-        videos: [], // key-value pair = empty array, because I will have more than one 
+        videos: [], 
         selectedVideo: null
     };
 
@@ -22,19 +23,18 @@ class App extends Component {
 // using the youtube-api-search package
 videoSearch(searchTerm) {
   YTSearch({key: API_KEY, term: searchTerm}, (data) => { // data -> where the value of the search goes
-    // console.log(data);
       this.setState({ 
           videos: data,
           selectedVideo: data[0] // defaults to the first video when the search is done in YTSearch
       });
   });
-
 }
-  render() {
-    return (
+
+render() {
+  return (
       <div>
         <div className='title-container'>
-        <h3 className='title'>YouTube Video Player made with ReactJS</h3>
+          <h3 className='title'>YouTube Video Player made with ReactJS</h3>
         </div>
         <SearchBar onSearchTermChange={searchTerm => this.videoSearch(searchTerm)}/>
         <VideoDetail video={this.state.selectedVideo}/>

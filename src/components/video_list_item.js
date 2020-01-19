@@ -1,13 +1,11 @@
 import React from 'react';
 
 const VideoListItem = (props) => {
-    const video = props.video; // property that comes from VideoList
+    const video = props.video; // property that comes from the VideoList component
     const onUserSelected = props.onUserSelected;
-    // console.log(video);    
     const image = video.snippet.thumbnails.default.url;
 
     return ( // when the user clicks on the video they want
-        <div class='list-container'>
         <li onClick={() => onUserSelected(video)} className="list-group-item">
         <div className="video-list media">
             <div className="media-left">
@@ -18,7 +16,6 @@ const VideoListItem = (props) => {
             </div>
         </div>
     </li>
-    </div>
     );
 };
 

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component{
-    constructor(props){ // or creating and initializing an object created with a class
-        super(props); // the super keyword to call the constructor of the super class
-        this.state = {videoterm: ''}; // object with key-value pair
-
+    constructor(props){ 
+        super(props); 
+        this.state = {videoterm: ''}; 
         this.onInputHandler = this.onInputHandler.bind(this);
     }
 
@@ -19,16 +18,12 @@ class SearchBar extends Component{
                 <input   
                     className='input'   
                     placeholder='Search...'          
-                    value={this.state.term}
-                    onChange={this.onInputChange} 
+                    value={this.state.videoterm}
+                    onChange={this.onInputHandler} 
                 />               
-            </div>
-
-        
-        
+            </div>       
         );        
     }
-
 }
 
 export default SearchBar;
